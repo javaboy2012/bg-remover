@@ -1,0 +1,17 @@
+name = "bg-remover"
+compatibility_date = "2025-03-25"
+pages_build_output_dir = ".next"
+
+[env.production]
+vars = { REMOVE_BG_API_KEY = "${REMOVE_BG_API_KEY}" }
+
+[[build]]
+command = "npm run build"
+
+[[build.upload]]
+directory = ".next"
+
+# Functions configuration (for API routes)
+[functions]
+include = [".next/server/**/*.js"]
+exclude = ["node_modules/**"]
